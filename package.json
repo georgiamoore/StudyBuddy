@@ -1,0 +1,23 @@
+{
+  "name": "studybot",
+  "version": "1.0.0",
+  "description": "Study Discord bot!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felixmoore/HackNotts2020.git"
+  },
+  "author": "Felix Moore",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "latest",
+    "get-youtube-title": "latest"
+  },
+  "bugs": {
+    "url": "https://github.com/felixmoore/HackNotts2020/issues"
+  },
+  "homepage": "https://github.com/felixmoore/HackNotts2020#readme"
+}
