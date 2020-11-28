@@ -1,24 +1,51 @@
-const index = require('../index');
-let prefix = index.prefix;
-// let registeredChannel = index.registeredChannel;
-let sessionTime = index.sessionTime;
+//const index = require('../index');
+const config = require('../config.json');
 const getYoutubeTitle = require('get-youtube-title');
-let successVideoId = index.successVideoId;
-let failureVideoId = index.failureVideoId;
-let alertVideoId = index.alertVideoId;
+
+const fs = require('fs');
+const fileName = __dirname + '/../config.json';
+const file = require(fileName);
+
 
 module.exports = {
-    name: `${prefix}config`,
+    name: `config`,
     description: 'Edit the default settings.',
+    args: true,
+    usage: '<command> <new setting>',
     execute(message, args) {
+
+        if (!args.length) {
+            return message.channel.send(`You didn't provide any arguments, ${message.author}!`);
+
+        }
+
         let setting = args[0].toLowerCase();
 
         if (setting == "time") {
             if (args[1] == null) {
                 message.reply("input error - please enter an integer parameter!");
             } else if (!isNaN(args[1])) {
-                sessionTime = args[1];
+                
+                file.sessionTime = args[1];
+                fs.writeFileSync(fileName, JSON.stringify(file, null, 2), function writeJSON(err) {
+                    if (err) return console.log(err);
+                   
+                });
                 message.reply(`study length successfully changed to ${sessionTime} minutes!`)
+            } else {
+                message.reply("input error - please enter an integer parameter!");
+            }
+        } else if (setting == "break") {
+            if (args[1] == null) {
+                message.reply("input error - please enter an integer parameter!");
+            } else if (!isNaN(args[1])) {
+                
+                file.breakLength = args[1];
+                fs.writeFileSync(fileName, JSON.stringify(file, null, 2), function writeJSON(err) {
+                    if (err) return console.log(err);
+                   
+                });
+                message.reply(`break length successfully changed to ${breakLength} minutes!`)
             } else {
                 message.reply("input error - please enter an integer parameter!");
             }
@@ -34,7 +61,12 @@ module.exports = {
                     getYoutubeTitle('args[1]', function (err, title) {
                         message.reply(`victory sound successfully changed to ${title}!`);
                     })
-                    successVideoId = args[1];
+                    file.successVideoId = args[1];
+                fs.writeFileSync(fileName, JSON.stringify(file, null, 2), function writeJSON(err) {
+                    if (err) return console.log(err);
+                   
+                });
+                   // config.successVideoId = args[1];
                 }
             });
         } else if (setting == "failure") {
@@ -49,7 +81,12 @@ module.exports = {
                     getYoutubeTitle('args[1]', function (err, title) {
                         message.reply(`victory sound successfully changed to ${title}!`);
                     })
-                    failureVideoId = args[1];
+                    file.failureVideoId = args[1];
+                fs.writeFileSync(fileName, JSON.stringify(file, null, 2), function writeJSON(err) {
+                    if (err) return console.log(err);
+                   
+                });
+                    // config.failureVideoId = args[1];
                 }
             });
         } else if (setting == "alert") {
@@ -64,7 +101,12 @@ module.exports = {
                     getYoutubeTitle('args[1]', function (err, title) {
                         message.reply(`victory sound successfully changed to ${title}!`);
                     })
-                    alertVideoId = args[1];
+                    // config.alertVideoId = args[1];
+                    file.alertVideoId = args[1];
+                    fs.writeFileSync(fileName, JSON.stringify(file, null, 2), function writeJSON(err) {
+                        if (err) return console.log(err);
+                       
+                    });
                 }
             });
         } else {

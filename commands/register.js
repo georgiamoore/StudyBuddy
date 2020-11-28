@@ -1,16 +1,17 @@
-const index = require('../index');
-let prefix = index.prefix;
-let registeredChannel = index.registeredChannel;
+//const index = require('../index');
+const config = require('../config.json');
+
 
 module.exports = {
-    name: `${prefix}register`,
+    name: `register`,
     description: 'Register the active channel.',
     execute(message, args) {
-        if (registeredChannel != null){
-            registeredChannel.setTopic("");
+        
+        if (config.registeredChannel != null){
+            config.registeredChannel.setTopic("");
         }
-        registeredChannel = message.channel;
-        registeredChannel.send(`Successfully registered to ${registeredChannel}!`);
-        registeredChannel.setTopic("Study Buddy");
+        config.registeredChannel = message.channel;
+        config.registeredChannel.send(`Successfully registered to ${config.registeredChannel}!`);
+        config.registeredChannel.setTopic("Study Buddy");
     },
   };

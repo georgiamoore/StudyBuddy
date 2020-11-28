@@ -1,8 +1,6 @@
-const index = require('../index');
-let prefix = index.prefix;
-//don't ask me why I'm leaving this in, I don't know either
+//left this in just in case I ever feel like procrastinating by playing ping pong
 module.exports = {
-    name: `${prefix}ping`,
+    name: `ping`,
     description: 'Ping!',
     execute(message, args) {
         message.channel.send('Pong!');
