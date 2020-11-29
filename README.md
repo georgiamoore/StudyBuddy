@@ -10,3 +10,8 @@ Cat pics from https://aws.random.cat/meow 🐈
 
 If you want to use this in your own server, make yourself a bot & set up a `config.json` - there's an example in `example-config.json`!
 You'll also need to install [ffmpeg](http://ffmpeg.org/), if you're interested in the voice channel stuff.
+
+Defaults:
+Success sound - https://www.youtube.com/watch?v=lz8S0HQzrpU
+Failure sound - https://www.youtube.com/watch?v=CVH1ICPLfnk
+Alert sound - https://www.youtube.com/watch?v=8yGfQak-q9M
