@@ -1,7 +1,7 @@
 //const index = require('../index');
-const config = require('../config.json');
+const config = require(__dirname + '/../config.json');
 const getYoutubeTitle = require('get-youtube-title');
-
+const request = require('request');
 const fs = require('fs');
 const fileName = __dirname + '/../config.json';
 const file = require(fileName);
@@ -58,15 +58,15 @@ module.exports = {
                 }
                 else {
                     //video found
-                    getYoutubeTitle('args[1]', function (err, title) {
-                        message.reply(`victory sound successfully changed to ${title}!`);
-                    })
+                   
+                        message.reply(`success sound successfully changed!`);
+                    
                     file.successVideoId = args[1];
                 fs.writeFileSync(fileName, JSON.stringify(file, null, 2), function writeJSON(err) {
                     if (err) return console.log(err);
                    
                 });
-                   // config.successVideoId = args[1];
+                
                 }
             });
         } else if (setting == "failure") {
@@ -78,15 +78,15 @@ module.exports = {
                 }
                 else {
                     //video found
-                    getYoutubeTitle('args[1]', function (err, title) {
-                        message.reply(`victory sound successfully changed to ${title}!`);
-                    })
+                    
+                        message.reply(`failure sound successfully changed!`);
+                    
                     file.failureVideoId = args[1];
                 fs.writeFileSync(fileName, JSON.stringify(file, null, 2), function writeJSON(err) {
                     if (err) return console.log(err);
                    
                 });
-                    // config.failureVideoId = args[1];
+                   
                 }
             });
         } else if (setting == "alert") {
@@ -98,10 +98,9 @@ module.exports = {
                 }
                 else {
                     //video found
-                    getYoutubeTitle('args[1]', function (err, title) {
-                        message.reply(`victory sound successfully changed to ${title}!`);
-                    })
-                    // config.alertVideoId = args[1];
+                    
+                        message.reply(`alert sound successfully changed!`);
+                  
                     file.alertVideoId = args[1];
                     fs.writeFileSync(fileName, JSON.stringify(file, null, 2), function writeJSON(err) {
                         if (err) return console.log(err);
@@ -112,14 +111,5 @@ module.exports = {
         } else {
             message.reply("invalid command, please enter a valid command.");
         }
-        // if (registeredChannel != null){
-        //     registeredChannel.setTopic("");
-        // }
-        // registeredChannel = message.channel;
-        // registeredChannel.send(`Successfully registered to ${registeredChannel}!`);
-        // registeredChannel.setTopic("Study Buddy");
     },
-
-    // const params = args.content.split(/ +/);
-    // const command = params.shift().toLowerCase();
 };

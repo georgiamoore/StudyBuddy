@@ -13,8 +13,15 @@
   "author": "Felix Moore",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "latest",
-    "get-youtube-title": "latest"
+    "@discordjs/opus": "^0.3.3",
+    "discord.js": "^12.5.1",
+    "ffmpeg": "0.0.4",
+    "get-youtube-title": "latest",
+    "node-fetch": "^2.6.1",
+    "node-opus": "^0.3.3",
+    "opusscript": "0.0.7",
+    "request": "^2.88.2",
+    "ytdl-core": "^4.1.0"
   },
   "bugs": {
     "url": "https://github.com/felixmoore/HackNotts2020/issues"
