@@ -1,7 +1,7 @@
 # Study Buddy
 A friendly Discord.js bot to help keep you accountable when studying. Also rewards you with cat pics if you meet your goals!
 
-My HackNotts2020 project!
+My HackNotts2020 project! Youtube demo [here](https://youtu.be/VpVuGiMp_q0) 
 
 Illustration used as the bot's icon in my demo is from [Icons8](https://icons8.com/illustrations/illustration/ginger-cat-cat-is-reading).
 
